@@ -1,5 +1,6 @@
 [
   "update-relative-links",
   "consistent-attachments-and-links",
-  "unique-attachments"
+  "unique-attachments",
+  "obsidian-markdown-export-plugin"
 ]
