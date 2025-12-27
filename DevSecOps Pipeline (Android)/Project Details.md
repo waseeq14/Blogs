@@ -14,7 +14,7 @@ The objective was simple: **every build should be automatically tested, scanned,
 
 The solution was deployed across **two AWS EC2 instances** to maintain separation of concerns and improve overall stability and performance.
 
-![[Pasted image 20251227193202.png]]
+![[Pasted image 20251227193202.png](res/Pasted%20image%2020251227193202.png)
 
 ### EC2 Instance 1 – CI & Build Environment
 
@@ -51,7 +51,7 @@ You can use any preferred method to connect to the EC2 instances. I used [MobaXt
 
 To avoid repeatedly modifying firewall rules during setup, I opened a broader range of ports to support all required services.
 
-![[Pasted image 20251227194253.png]]
+![[Pasted image 20251227194253.png](res/Pasted%20image%2020251227194253.png)
 
 Elastic IPs were also assigned to both instances for consistent access. AWS documentation for this can be found [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-eips.html).
 
@@ -86,7 +86,7 @@ Jenkins was used as the central CI/CD orchestrator for the entire DevSecOps pipe
 - Automatically sends the generated artifact to MobSF for static analysis.
 - Collects scan results and forwards them to DefectDojo for centralized vulnerability management.
 
-![[Pasted image 20251227212335.png]]
+![[Pasted image 20251227212335.png](res/Pasted%20image%2020251227212335.png)
 
 This setup allowed Jenkins to act as a single control point, ensuring consistent, repeatable, and automated security testing across the pipeline.
 
@@ -125,9 +125,9 @@ A JSON report is generated and stored for later processing.
 
 To use Semgrep, an account must be created at [semgrep.dev](https://semgrep.dev/), and an API token generated via **Settings → Tokens → API Tokens**.  
 This token is stored securely in Jenkins credentials and referenced within the pipeline.
-![[Pasted image 20251227213608.png]]
+![[Pasted image 20251227213608.png](res/Pasted%20image%2020251227213608.png)
 
-![[Pasted image 20251227200456.png]]
+![[Pasted image 20251227200456.png](res/Pasted%20image%2020251227200456.png)
 
 ---
 
@@ -150,7 +150,7 @@ SonarQube was deployed following the official documentation:
     [https://docs.sonarsource.com/sonarqube-server/10.8/analyzing-source-code/ci-integration/jenkins-integration/global-setup](https://docs.sonarsource.com/sonarqube-server/10.8/analyzing-source-code/ci-integration/jenkins-integration/global-setup)
     
 
-![[Pasted image 20251227201210.png]]
+![[Pasted image 20251227201210.png](res/Pasted%20image%2020251227201210.png)
 
 SonarQube analyzes the codebase for:
 
@@ -194,10 +194,10 @@ DefectDojo was deployed using the official repository:
 
 Integration with Jenkins is simplified through a dedicated [DefectDojo Jenkins plugin](https://github.com/DefectDojo/django-DefectDojo). The plugin allows automatic generation of pipeline snippets for supported tools.
 
-![[Pasted image 20251227202254.png]]  
-![[Pasted image 20251227202306.png]]  
-![[Pasted image 20251227202323.png]]  
-![[Pasted image 20251227202344.png]]
+![[Pasted image 20251227202254.png](res/Pasted%20image%2020251227202254.png)  
+![[Pasted image 20251227202306.png](res/Pasted%20image%2020251227202306.png)  
+![[Pasted image 20251227202323.png](res/Pasted%20image%2020251227202323.png)  
+![[Pasted image 20251227202344.png](res/Pasted%20image%2020251227202344.png)
 
 The following reports are automatically uploaded to DefectDojo:
 
